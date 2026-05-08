@@ -48,6 +48,11 @@ public class GuildHall implements GuildMediator {
             addSubscriber(ORDERS, member);
             addSubscriber(HEALING, member);
             addSubscriber(CURSE, member);
+        } else if (member instanceof Loremaster) {
+            addSubscriber(ORDERS, member);
+            addSubscriber(LORE, member);
+            addSubscriber(CURSE, member);
+            addSubscriber(HISTORY, member);
         }
     }
 
