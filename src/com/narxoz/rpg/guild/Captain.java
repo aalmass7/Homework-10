@@ -10,12 +10,14 @@ public class Captain extends GuildMember {
     }
 
     public void issueOrder(String topic, String payload) {
-        // TODO: send a command message through the mediator.
         getMediator().dispatch(topic, this, payload);
     }
 
     @Override
     public void receive(String topic, GuildMember from, String payload) {
-        // TODO: react to a guild-hall message without calling another colleague directly.
+        String sender = from == null ? "CouncilEngine" : from.getName();
+
+        System.out.println("[Captain " + getName() + "] received " + topic + " from "
+                + sender + ": adjusting the mission plan. Details: " + payload);
     }
 }
